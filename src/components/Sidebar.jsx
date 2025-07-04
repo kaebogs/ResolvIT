@@ -116,7 +116,7 @@ const Sidebar = () => {
               width={27}
             />
             <div className="user-details">
-              <span className="user-name">Lollima</span>
+              <span className="user-name">kaebogs</span>
               <span className="user-description">Barangay Secretary</span>
             </div>
           </div>

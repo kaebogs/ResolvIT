@@ -100,7 +100,7 @@ const Header = ({ showButton }) => {
           />
           {openDropdown === "profile" && (
             <div className="dropdown profile-dropdown">
-              <div className="dropdown-header">Lollima</div>
+              <div className="dropdown-header">kaebogs</div>
               <div className="dropdown-option">
                 <img
                   src="../assets/support-icon.png"
@@ -128,10 +128,18 @@ const Header = ({ showButton }) => {
           <div className="modal-content">
             <p>Are you sure you want to logout?</p>
             <div className="modal-actions">
-              <button className="yes-btn" onClick={handleLogoutConfirm}>
+              <button
+                className="yes-btn"
+                onClick={() => {
+                  handleLogout(); // Call the logout function
+                }}
+              >
                 Yes
               </button>
-              <button className="no-btn" onClick={handleLogoutCancel}>
+              <button
+                className="no-btn"
+                onClick={() => setShowLogoutModal(false)} // Close the modal
+              >
                 No
               </button>
             </div>

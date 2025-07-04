@@ -19,6 +19,7 @@ const Home = () => {
       {/* Add the Header component here */}
       <Header showButton={false} />
 
+      <br /> <br /> <br /> <br />
       <div className="content">
         <div className="title-container">
           <img

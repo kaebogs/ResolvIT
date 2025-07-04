@@ -38,13 +38,13 @@ const Profile = () => {
                 {/*<img src="../assets/default-avatar.png" alt="Profile" />*/}
                 <div className="upload-icon">
                   <img
-                    src="../assets/camera-icon.png"
+                    src="../assets/user-kae.png"
                     alt="Upload Icon"
                     className="upload-icon-style"
                   />
                 </div>
               </div>
-              <p className="p-username">Username</p>
+              <p className="p-username">kaebogs</p>
               <p className="user-role">Barangay Secretary</p>
             </div>
 
@@ -55,7 +55,7 @@ const Profile = () => {
               <hr className="section-separator" />
               <p>
                 <span className="label">Email:</span>
-                <span className="value">JohnResolvIT@gmail.com</span>
+                <span className="value">bonhayagkaela@gmail.com</span>
               </p>
               <p>
                 <span className="label">Phone:</span>
@@ -67,11 +67,11 @@ const Profile = () => {
               <hr className="section-separator" />
               <p>
                 <span className="label">Full Name:</span>
-                <span className="value">John Reyes</span>
+                <span className="value">Kaela Bonhayag</span>
               </p>
               <p>
                 <span className="label">Username:</span>
-                <span className="value">mrjohnresolvit</span>
+                <span className="value">kaebogs</span>
               </p>
 
               {/* Administrative Info */}
