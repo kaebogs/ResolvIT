@@ -1,4 +1,6 @@
 require("dotenv").config();
+console.log("Loaded ENV:", process.env.MONGO_URI_USER);
+
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -18,79 +20,36 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Connect to the 'user' database for user registration and login
-  mongoose.connect(process.env.MONGO_URI_USER, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+// Connect to 'user' database
+mongoose.connect(process.env.MONGO_URI_USER)
   .then(() => console.log("Connected to 'user' database"))
   .catch((err) => console.log("Error connecting to 'user' database:", err));
 
-// Connect to the 'form7_data' database for Form 7 data
-const form7Db = mongoose.createConnection(process.env.MONGO_URI_FORM7, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Connect to 'form7_data'
+const form7Db = mongoose.createConnection(process.env.MONGO_URI_FORM7);
+form7Db.on("connected", () => console.log("Connected to 'form7_data' database"));
 
-form7Db.on("connected", () => {
-  console.log("Connected to 'form7_data' database");
-});
+// Connect to 'form8_data'
+const form8Db = mongoose.createConnection(process.env.MONGO_URI_FORM8);
+form8Db.on("connected", () => console.log("Connected to 'form8_data' database"));
 
-// Connect to the 'form8_data' database for Form 8 data
-const form8Db = mongoose.createConnection(process.env.MONGO_URI_FORM8, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Connect to 'form9_data'
+const form9Db = mongoose.createConnection(process.env.MONGO_URI_FORM9);
+form9Db.on("connected", () => console.log("Connected to 'form9_data' database"));
 
-form8Db.on("connected", () => {
-  console.log("Connected to 'form8_data' database");
-});
+// Connect to 'form14_data'
+const form14Db = mongoose.createConnection(process.env.MONGO_URI_FORM14);
+form14Db.on("connected", () => console.log("Connected to 'form14_data' database"));
 
-// Connect to the 'form9_data' database for Form 9 data
-const form9Db = mongoose.createConnection(process.env.MONGO_URI_FORM9, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Connect to 'form22_data'
+const form22Db = mongoose.createConnection(process.env.MONGO_URI_FORM22);
+form22Db.on("connected", () => console.log("Connected to 'form22_data' database"));
 
-form9Db.on("connected", () => {
-  console.log("Connected to 'form9_data' database");
-});
+// Connect to 'dashboard'
+const dashboardDb = mongoose.createConnection(process.env.MONGO_URI_DASHBOARD);
+dashboardDb.on("connected", () => console.log("Connected to 'dashboard' database"));
+dashboardDb.on("error", (err) => console.log("Error connecting to 'dashboard' database:", err));
 
-//connect to the 'form14_data' database for Form 14 data
-const form14Db = mongoose.createConnection(process.env.MONGO_URI_FORM14, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-form14Db.on("connected", () => {
-  console.log("Connected to 'form14_data' database");
-});
-
-// Connect to the 'form22_data' database for Form 22 data
-const form22Db = mongoose.createConnection(process.env.MONGO_URI_FORM22, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-form22Db.on("connected", () => {
-  console.log("Connected to 'form22_data' database");
-});
-
-// Connect to the 'dashboard' database
-const dashboardDb = mongoose.createConnection(process.env.MONGO_URI_DASHBOARD, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-dashboardDb.on("connected", () => {
-  console.log("Connected to 'dashboard' database");
-});
-
-dashboardDb.on("error", (err) => {
-  console.log("Error connecting to 'dashboard' database:", err);
-});
-
-// Export dashboardDb
 module.exports = { dashboardDb };
 
 // Login route
