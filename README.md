@@ -45,14 +45,13 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/resolvit-complaint-hub.git
+git clone https://github.com/kaebogs/ResolvIT.git
 
 # Navigate to the project folder
-cd resolvit-complaint-hub
+cd RESOLVIT
 
 # Install dependencies
 npm install
 
 # Run the development server
-npm start
 npm run dev
